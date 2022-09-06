@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting App</title>
+</head>
+<body>
+    <h1>Welcome to the official pet voting app</h1>
+    <h4>Please select what is your favorite pet to have</h4>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <form action="/vote" method="POST">
+        <div>
+            <input type="text" id="voter" name="voter" placeholder="Enter your name" required/>
+        </div>
+        <div class="option-selector">
+            <div class="radio-container">
+                <label for="dog">Dog</label>
+                <input type="radio" id="dog" name="pet" value="dog"/>
+            </div>
+            <div class="radio-container">
+                <label for="cat">Cat</label>
+                <input type="radio" id="cat" name="pet" value="cat"/>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Send your vote</button>
+        </div>
+    </form>
+</body>
+</html>
