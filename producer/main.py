@@ -12,9 +12,9 @@ def vote():
         "voter": request.form['voter'],
         "pet": request.form['pet'],
     }
-    producer.produce('votes', key=data['voter'], value=data['pet'], callback=acked)
+    producer.produce('votes', key = data['voter'], value=data['pet'], callback=acked)
     producer.poll(1)
     flash(f'{ data["voter"]} your vote for {data["pet"]} has been registered')
-    return redirect(url_for('index'))
+    return redirect(url_for('index',values={ "name": data["voter"] }))
 if __name__ == '__main__':
     SERVER.run(debug=True)

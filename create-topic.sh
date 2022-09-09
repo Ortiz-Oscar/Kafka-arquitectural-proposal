@@ -1,4 +1,1 @@
-sudo docker exec broker \
-kafka-topics --bootstrap-server broker:9092 \
-             --create \
-             --topic votes
+docker exec broker kafka-topics --bootstrap-server broker:9092 --create --topic votes

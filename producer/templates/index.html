@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/index.css">
     <title>Voting App</title>
 </head>
 <body>
     <h1>Welcome to the official pet voting app</h1>
-    <h4>Please select what is your favorite pet to have</h4>
+    <h5>Please select what is your favorite pet to have</h5>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <ul class=flashes>
             {% for message in messages %}
-                <li>{{ message }}</li>
+                <h2><strong>{{ message }}!</strong></h2>
             {% endfor %}
-            </ul>
         {% endif %}
     {% endwith %}
     <form action="/vote" method="POST">
-        <div>
+        <div class="button-holder">
             <input type="text" id="voter" name="voter" placeholder="Enter your name" required/>
         </div>
         <div class="option-selector">
-            <div class="radio-container">
-                <label for="dog">Dog</label>
-                <input type="radio" id="dog" name="pet" value="dog"/>
-            </div>
-            <div class="radio-container">
-                <label for="cat">Cat</label>
-                <input type="radio" id="cat" name="pet" value="cat"/>
-            </div>
+            <label for="dog" class="radio-container dog">
+                <div>
+                        <h4>Dogs</h4>
+                        <img src="https://cheemsinu.io/wp-content/uploads/2022/04/CheemsNEW1Artboard-24@2x-1f.png" alt="Cat" height="300" width="300"/></label>
+                    <input type="radio" id="dog" name="pet" value="dog" required/>
+                </div>
+            </label>
+            <label for="cat" class="radio-container cat">
+                <div>
+                    <h4>Cats</h4>
+                    <img src="https://zeepec.venusobjects.com/design/yasuo/122161.png" alt="Cat" height="300" width="300"/></label>
+                    <input type="radio" id="cat" name="pet" value="cat" required/>
+                </div>
+            </label>
         </div>
         <div>
             <button type="submit">Send your vote</button>
