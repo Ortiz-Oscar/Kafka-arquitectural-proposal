@@ -1,4 +1,4 @@
-const Kafka = require('node-rdkafka');
+import { KafkaConsumer } from 'node-rdkafka';
 const BROKER_SERVER_URL = 'localhost:9092';
 const TOPIC = 'votes'
 
@@ -10,7 +10,7 @@ function createConfigMap() {
 }
 
 function createConsumer(onData) {
-  const consumer = new Kafka.KafkaConsumer(
+  const consumer = new KafkaConsumer(
       createConfigMap(),
       {'auto.offset.reset': 'earliest'});
 
