@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="filler" [style.background]=fillStyle>
+      <div id="dog">
+        <h3>Dogs</h3>
+      </div>
+      <div id="cat">
+        <h3>Cats</h3>
+      </div>
+  </div>
+  <h1>Voting Pool Results</h1>
+  <table>
+    <thead>
+        <tr>
+            <th>Voter Name</th>
+            <th>Vote</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vote of registeredVotes">
+          <td>{{vote.voter}}</td>
+          <td>{{vote.vote}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

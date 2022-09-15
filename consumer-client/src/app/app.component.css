@@ -1,0 +1,33 @@
+.filler {
+  display: flex;
+  height: 20%;
+}
+#dog{
+  color: azure;
+  text-align: start;
+  flex:auto;
+  left: 0;
+}
+#cat{
+  color: azure;
+  text-align: end;
+  flex:auto;
+  right: 0;
+}
+.container{
+  text-align: center;
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+tr{
+  flex-direction: column;
+  flex: auto;
+}
+td{
+  flex: auto;
+}

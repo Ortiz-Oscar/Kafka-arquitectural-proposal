@@ -1,0 +1,18 @@
+{
+  "name": "consumer-server",
+  "version": "1.0.0",
+  "description": "Simple Socket Server for serving data from kafka broker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oscar Ortiz",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "node-rdkafka": "^2.13.0",
+    "socket.io": "^4.5.2"
+  }
+}
