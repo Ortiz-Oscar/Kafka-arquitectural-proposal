@@ -1,11 +1,11 @@
 from confluent_kafka import Producer
 import socket
-
-conf = {'bootstrap.servers': "localhost:9092",
+from read_env import read_env_val
+conf = {'bootstrap.servers': read_env_val('BROKER_URL'),
         'client.id': socket.gethostname()}
 
 producer = Producer(conf)
-topic = 'votes'
+topic = read_env_val('TOPIC')
 def acked(err, msg):
     if err is not None:
         print("Failed to deliver message: %s: %s" % (str(msg), str(err)))

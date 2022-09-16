@@ -3,9 +3,11 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import createConsumer, { TOPIC } from "./kafka-consumer.js"
 import cors from "cors"
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 const app = express();
 const corsOptions = {
-    origin: 'localhost:4200',
+    origin: '*',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions))
@@ -45,7 +47,7 @@ handleConsumerMessages()
     process.exit(1);
 });
 //----------------------
-
+const PORT = parseInt(process.env.PORT)
 
 //It is not going to listen to the express ports
-httpServer.listen(3001);
+httpServer.listen(PORT);

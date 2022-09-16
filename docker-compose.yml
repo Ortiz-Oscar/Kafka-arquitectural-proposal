@@ -25,3 +25,31 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+  producer:
+    build: ./producer
+    depends_on:
+      - broker
+    ports:
+      - "5000:5000"
+    environment:
+      BROKER_URL: 'broker:9092'
+      TOPIC: votes
+  consumer-server:
+    build: ./consumer-server
+    depends_on:
+      - broker
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      BROKER_SERVER_URL: 'broker:9092'
+      TOPIC: votes
+  consumer-client:
+    build: ./consumer-client
+    depends_on:
+      - consumer-server
+    ports:
+      - "8080:80"
+#    environment:
+#      SOCKET_SERVER_URL: 'consumer-server:3001'
+#      ENVIRONMENT: production1

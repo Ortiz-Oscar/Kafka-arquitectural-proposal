@@ -17,4 +17,4 @@ def vote():
     flash(f'{ data["voter"]} your vote for {data["pet"]} has been registered')
     return redirect(url_for('index',values={ "name": data["voter"] }))
 if __name__ == '__main__':
-    SERVER.run(debug=True)
+    SERVER.run(debug=True, host='0.0.0.0')
