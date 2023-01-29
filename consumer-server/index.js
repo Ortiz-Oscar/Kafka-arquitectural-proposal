@@ -27,7 +27,6 @@ async function handleConsumerMessages(){
     let consumer = await createConsumer(({key, value}) => {
         let k = key.toString();
         io.local.emit("Vote", {"voter" : k, "vote" : value})
-        //console.log(`Consumed event from topic ${TOPIC}: key = ${k} value = ${value}`);
     });
     
     consumer.subscribe([TOPIC]);
